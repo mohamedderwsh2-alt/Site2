@@ -1,0 +1,216 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
+import { AppLayout } from '@/components/AppLayout'
+import { Users, DollarSign, TrendingUp, Copy, Check } from 'lucide-react'
+import { motion } from 'framer-motion'
+
+export default function ReferralsPage() {
+  const { data: session, status } = useSession()
+  const router = useRouter()
+  const [userData, setUserData] = useState<any>(null)
+  const [referralEarnings, setReferralEarnings] = useState<any[]>([])
+  const [copied, setCopied] = useState(false)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    if (status === 'unauthenticated') {
+      router.push('/login')
+      return
+    }
+
+    if (status === 'authenticated') {
+      fetchData()
+    }
+  }, [status, router])
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch('/api/user/data')
+      const data = await response.json()
+      if (data.success) {
+        setUserData(data.user)
+      }
+
+      const earningsResponse = await fetch('/api/referrals/earnings')
+      const earningsData = await earningsResponse.json()
+      if (earningsData.success) {
+        setReferralEarnings(earningsData.earnings)
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const copyReferralLink = () => {
+    const referralCode = userData?.referralCode
+    const referralLink = `${window.location.origin}/register?ref=${referralCode}`
+    navigator.clipboard.writeText(referralLink)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  const copyReferralCode = () => {
+    const referralCode = userData?.referralCode
+    navigator.clipboard.writeText(referralCode)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  if (status === 'loading' || loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Loading...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (!userData) return null
+
+  const totalEarnings = referralEarnings.reduce(
+    (sum, earning) => sum + earning.amount,
+    0
+  )
+
+  return (
+    <AppLayout>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="space-y-6"
+      >
+        <div className="card bg-gradient-to-br from-purple-600 to-purple-800 text-white">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <p className="text-purple-100 text-sm">Total Referral Earnings</p>
+              <h2 className="text-4xl font-bold mt-1">
+                {totalEarnings.toFixed(2)} USDT
+              </h2>
+            </div>
+            <Users size={48} className="opacity-80" />
+          </div>
+        </div>
+
+        <div className="card">
+          <h3 className="font-semibold text-lg mb-4">Your Referral Code</h3>
+          <div className="flex gap-2 mb-4">
+            <input
+              type="text"
+              value={userData.referralCode}
+              readOnly
+              className="input-field flex-1 font-mono text-sm"
+            />
+            <button
+              onClick={copyReferralCode}
+              className="px-4 py-3 bg-gray-200 hover:bg-gray-300 rounded-lg transition-colors"
+            >
+              {copied ? (
+                <Check size={20} className="text-green-600" />
+              ) : (
+                <Copy size={20} />
+              )}
+            </button>
+          </div>
+          <button
+            onClick={copyReferralLink}
+            className="btn-primary w-full"
+          >
+            {copied ? 'Copied!' : 'Copy Referral Link'}
+          </button>
+        </div>
+
+        <div className="card bg-green-50 border border-green-200">
+          <h3 className="font-semibold text-lg mb-3 text-green-900">
+            How Referrals Work
+          </h3>
+          <div className="space-y-3 text-sm text-green-800">
+            <div className="flex items-start">
+              <DollarSign size={20} className="mr-2 mt-0.5 flex-shrink-0" />
+              <div>
+                <p className="font-semibold">5% Instant Commission</p>
+                <p className="text-green-700">
+                  When someone uses your referral code and makes a deposit, 
+                  you instantly earn 5% of their deposit amount.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start">
+              <TrendingUp size={20} className="mr-2 mt-0.5 flex-shrink-0" />
+              <div>
+                <p className="font-semibold">20% Profit Commission</p>
+                <p className="text-green-700">
+                  You also earn 20% of all profits generated by users you referred. 
+                  This is ongoing passive income!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="card">
+          <h3 className="font-semibold text-lg mb-4">Referral Earnings History</h3>
+          {referralEarnings.length > 0 ? (
+            <div className="space-y-3">
+              {referralEarnings.map((earning) => (
+                <div
+                  key={earning.id}
+                  className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                >
+                  <div>
+                    <p className="font-medium text-sm">
+                      {earning.type === 'deposit_commission'
+                        ? 'Deposit Commission'
+                        : 'Profit Commission'}
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      {new Date(earning.createdAt).toLocaleString()}
+                    </p>
+                    {earning.description && (
+                      <p className="text-xs text-gray-600 mt-1">
+                        {earning.description}
+                      </p>
+                    )}
+                  </div>
+                  <div className="text-right">
+                    <p className="font-semibold text-green-600">
+                      +{earning.amount.toFixed(2)} USDT
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-gray-500 text-center py-4">
+              No referral earnings yet. Share your referral code to start earning!
+            </p>
+          )}
+        </div>
+
+        <div className="card bg-blue-50 border border-blue-200">
+          <h3 className="font-semibold text-lg mb-2 text-blue-900">
+            Example Calculation
+          </h3>
+          <div className="text-sm text-blue-800 space-y-2">
+            <p>
+              If someone deposits <strong>100 USDT</strong> using your code:
+            </p>
+            <ul className="list-disc list-inside space-y-1 ml-2">
+              <li>You earn <strong>5 USDT</strong> instantly (5% commission)</li>
+              <li>
+                If they earn <strong>50 USDT</strong> daily profit, you earn{' '}
+                <strong>10 USDT</strong> daily (20% of their profit)
+              </li>
+            </ul>
+          </div>
+        </div>
+      </motion.div>
+    </AppLayout>
+  )
+}

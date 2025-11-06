@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  password      String
+  name          String?
+  referralCode String    @unique @default(cuid())
+  referredBy    String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  wallet        Wallet?
+  transactions  Transaction[]
+  botPurchase   BotPurchase?
+  referrals     User[]    @relation("ReferralRelation")
+  referrer      User?     @relation("ReferralRelation", fields: [referredBy], references: [id])
+  referralEarnings ReferralEarning[]
+}
+
+model Wallet {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  balance   Float    @default(0)
+  totalEarned Float  @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transactions Transaction[]
+}
+
+model Transaction {
+  id          String      @id @default(cuid())
+  userId      String
+  type        String      // 'deposit', 'withdraw', 'profit', 'purchase'
+  amount      Float
+  status      String      @default("pending") // 'pending', 'completed', 'failed'
+  description String?
+  walletAddress String?   // For withdrawals
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  wallet      Wallet      @relation(fields: [userId], references: [userId], onDelete: Cascade)
+}
+
+model BotPurchase {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  purchaseAmount Float
+  isActive    Boolean  @default(true)
+  lastTradeAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model ReferralEarning {
+  id          String   @id @default(cuid())
+  referrerId  String
+  referredUserId String
+  type        String   // 'deposit_commission', 'profit_commission'
+  amount      Float
+  description String?
+  createdAt   DateTime @default(now())
+  
+  referrer    User     @relation(fields: [referrerId], references: [id], onDelete: Cascade)
+}
