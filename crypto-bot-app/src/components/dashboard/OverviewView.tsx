@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
 import { format, formatDistanceToNow } from "date-fns";
 import { enUS, tr as trLocale } from "date-fns/locale";
@@ -36,12 +36,11 @@ const FadeCard = ({ children }: { children: React.ReactNode }) => (
 
 export const OverviewView = ({ data }: OverviewViewProps) => {
   const { dictionary, locale } = useTranslation();
-  const [shareUrl, setShareUrl] = useState<string>("");
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setShareUrl(`${window.location.origin}/register?ref=${data.user.referralCode}`);
+  const shareUrl = useMemo(() => {
+    if (typeof window === "undefined") {
+      return "";
     }
+    return `${window.location.origin}/register?ref=${data.user.referralCode}`;
   }, [data.user.referralCode]);
 
   const dateLocale = locale === "tr" ? trLocale : enUS;

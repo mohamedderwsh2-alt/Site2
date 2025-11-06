@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
-import { Prisma } from "@prisma/client";
+import { Prisma } from "@/generated/prisma/client";
 import { z } from "zod";
 import prisma from "@/lib/prisma";
 import { authOptions } from "@/lib/auth";
 
-interface Params {
-  params: { id: string };
+interface RouteContext {
+  params: Promise<{ id: string }>;
 }
 
 const statusSchema = z.object({
@@ -14,7 +14,7 @@ const statusSchema = z.object({
   note: z.string().max(240).optional(),
 });
 
-export async function POST(request: Request, { params }: Params) {
+export async function POST(request: Request, context: RouteContext) {
   const session = await getServerSession(authOptions);
 
   if (!session?.user?.id || session.user.role !== "ADMIN") {
@@ -23,9 +23,10 @@ export async function POST(request: Request, { params }: Params) {
 
   const payload = await request.json();
   const { status, note } = statusSchema.parse(payload);
+  const { id } = await context.params;
 
   const withdrawal = await prisma.withdrawal.findUnique({
-    where: { id: params.id },
+    where: { id },
     include: {
       user: {
         select: {

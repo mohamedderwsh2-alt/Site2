@@ -63,36 +63,35 @@ export const TranslationProvider = ({
     },
     [locale, persistPreference],
   );
+    const translate = useCallback(
+      (path: string, fallback?: string) => {
+        const segments = path.split(".");
+        let value: unknown = dictionary;
 
-  const translate = useCallback(
-    (path: string, fallback?: string) => {
-      const segments = path.split(".");
-      let value: any = dictionary;
-
-      for (const segment of segments) {
-        if (value && typeof value === "object" && segment in value) {
-          value = value[segment];
-        } else {
-          return fallback ?? path;
+        for (const segment of segments) {
+          if (typeof value === "object" && value !== null && segment in value) {
+            value = (value as Record<string, unknown>)[segment];
+          } else {
+            return fallback ?? path;
+          }
         }
-      }
 
-      if (typeof value === "string") return value;
-      if (typeof value === "number") return String(value);
-      return fallback ?? path;
-    },
-    [dictionary],
-  );
+        if (typeof value === "string") return value;
+        if (typeof value === "number") return String(value);
+        return fallback ?? path;
+      },
+      [dictionary],
+    );
 
-  const contextValue = useMemo(
-    () => ({
-      locale,
-      dictionary,
-      t: translate,
-      setLocale,
-    }),
-    [locale, dictionary, translate, setLocale],
-  );
+    const contextValue = useMemo(
+      () => ({
+        locale,
+        dictionary,
+        t: translate,
+        setLocale,
+      }),
+      [locale, dictionary, translate, setLocale],
+    );
 
   return <TranslationContext.Provider value={contextValue}>{children}</TranslationContext.Provider>;
 };

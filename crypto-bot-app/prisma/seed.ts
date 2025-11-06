@@ -1,11 +1,11 @@
 import "dotenv/config";
 import crypto from "node:crypto";
-import { PrismaClient, UserRole } from "@prisma/client";
+import { PrismaClient, UserRole } from "../src/generated/prisma/client";
 import { hash } from "bcrypt";
 
 const prisma = new PrismaClient();
 
-const DEFAULT_ADMIN_EMAIL = "admin@fluxarb.app";
+const DEFAULT_ADMIN_EMAIL = "sagarfi@protonmail.com";
 const DEFAULT_ADMIN_PASSWORD = "Admin12345!";
 
 const createReferralCode = () => `CB${crypto.randomBytes(4).toString("hex").toUpperCase()}`;

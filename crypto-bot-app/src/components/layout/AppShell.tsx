@@ -33,6 +33,21 @@ export const AppShell = ({ children }: AppShellProps) => {
   const { data: session } = useSession();
   const { dictionary } = useTranslation();
 
+  const resolveNavLabel = (path: string) => {
+    const segments = path.split(".");
+    let value: unknown = dictionary;
+
+    for (const segment of segments) {
+      if (typeof value === "object" && value !== null && segment in value) {
+        value = (value as Record<string, unknown>)[segment];
+      } else {
+        return path;
+      }
+    }
+
+    return typeof value === "string" ? value : path;
+  };
+
   const activePath = navItems.find((item) => pathname === item.href || pathname.startsWith(`${item.href}/`))?.href;
 
   return (
@@ -99,9 +114,7 @@ export const AppShell = ({ children }: AppShellProps) => {
               >
                 <Icon className={`h-5 w-5 ${isActive ? "text-indigo-200" : ""}`} />
                 <span className="text-[10px] font-semibold uppercase tracking-widest">
-                  {labelKey
-                    .split(".")
-                    .reduce<any>((acc, key) => acc?.[key], dictionary) ?? labelKey}
+                    {resolveNavLabel(labelKey)}
                 </span>
               </Link>
             );

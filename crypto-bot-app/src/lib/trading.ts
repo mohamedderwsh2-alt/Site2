@@ -1,13 +1,7 @@
 import crypto from "node:crypto";
-import { Prisma } from "@prisma/client";
+import { Prisma } from "@/generated/prisma/client";
 import prisma from "@/lib/prisma";
-import {
-  calculateDailyProfit,
-  roundTo,
-  TWO_HOURS_MS,
-  PROFIT_SHARE_RATE,
-  REFERRAL_DEPOSIT_BONUS,
-} from "@/lib/profit";
+import { calculateDailyProfit, roundTo, TWO_HOURS_MS, PROFIT_SHARE_RATE } from "@/lib/profit";
 
 export const runTradingCyclesForUser = async (userId: string) => {
   const now = new Date();
@@ -46,9 +40,9 @@ export const runTradingCyclesForUser = async (userId: string) => {
 
     let runningBalance = balanceNumber;
     let accumulatedProfit = 0;
-    const tradesData: Parameters<typeof tx.trade.createMany>[0]["data"] = [];
-    const earningsData: Parameters<typeof tx.earningLog.createMany>[0]["data"] = [];
-    const commissionData: Parameters<typeof tx.referralCommission.createMany>[0]["data"] = [];
+    const tradesData: Prisma.TradeCreateManyInput[] = [];
+    const earningsData: Prisma.EarningLogCreateManyInput[] = [];
+    const commissionData: Prisma.ReferralCommissionCreateManyInput[] = [];
 
     for (let i = 0; i < cyclesDue; i += 1) {
       const cycleIndex = user.tradeCyclesRun + i + 1;

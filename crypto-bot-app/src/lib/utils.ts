@@ -1,10 +1,18 @@
-import { Prisma } from "@prisma/client";
+import type { Prisma } from "@/generated/prisma/client";
 
-export const decimalToNumber = (value: Prisma.Decimal | number | bigint | null | undefined) => {
+type DecimalLike = Prisma.Decimal | { toNumber: () => number };
+
+const hasToNumber = (value: unknown): value is { toNumber: () => number } =>
+  typeof value === "object" &&
+  value !== null &&
+  "toNumber" in value &&
+  typeof (value as { toNumber?: unknown }).toNumber === "function";
+
+export const decimalToNumber = (value: DecimalLike | number | bigint | null | undefined) => {
   if (value === null || value === undefined) return 0;
   if (typeof value === "number") return value;
   if (typeof value === "bigint") return Number(value);
-  if (value instanceof Prisma.Decimal) return Number(value);
+  if (hasToNumber(value)) return value.toNumber();
   return Number(value);
 };
 
