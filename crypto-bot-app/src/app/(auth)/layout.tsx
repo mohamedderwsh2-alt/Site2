@@ -2,12 +2,12 @@ import { cookies } from "next/headers";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { fallbackLocale, getDictionary, isSupportedLocale, type Locale } from "@/i18n";
 
-export default function AuthLayout({
+export default async function AuthLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const cookieLocale = cookieStore.get("locale")?.value;
   const locale: Locale = isSupportedLocale(cookieLocale) ? (cookieLocale as Locale) : fallbackLocale;
   const dictionary = getDictionary(locale);

@@ -1,7 +1,19 @@
-import { NextAuthOptions } from "next-auth";
+import { NextAuthOptions, type User } from "next-auth";
+import type { AdapterUser } from "next-auth/adapters";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { compare } from "bcrypt";
 import prisma from "@/lib/prisma";
+
+type ExtendedUser = (User | AdapterUser) & {
+  role?: string | null;
+  language?: string | null;
+  referralCode?: string | null;
+};
+
+const isExtendedUser = (user?: User | AdapterUser): user is ExtendedUser => {
+  if (!user) return false;
+  return "role" in user && "language" in user && "referralCode" in user;
+};
 
 export const authOptions: NextAuthOptions = {
   session: {
@@ -14,13 +26,22 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.id = (user as any).id;
-        token.role = (user as any).role;
-        token.language = (user as any).language;
-        token.referralCode = (user as any).referralCode;
+        token.id = user.id;
+
+        if (isExtendedUser(user)) {
+          if (typeof user.role === "string") {
+            token.role = user.role;
+          }
+          if (typeof user.language === "string") {
+            token.language = user.language;
+          }
+          if (typeof user.referralCode === "string") {
+            token.referralCode = user.referralCode;
+          }
+        }
       } else if (token.id) {
         const dbUser = await prisma.user.findUnique({
-          where: { id: token.id as string },
+          where: { id: token.id },
           select: {
             id: true,
             role: true,
@@ -40,10 +61,10 @@ export const authOptions: NextAuthOptions = {
     },
     async session({ session, token }) {
       if (session.user && token.id) {
-        session.user.id = token.id as string;
-        session.user.role = token.role as string;
-        session.user.language = (token.language as string) ?? "en";
-        session.user.referralCode = token.referralCode as string;
+        session.user.id = token.id;
+        session.user.role = token.role ?? session.user.role ?? "USER";
+        session.user.language = token.language ?? session.user.language ?? "en";
+        session.user.referralCode = token.referralCode ?? session.user.referralCode ?? "";
       }
 
       return session;
@@ -81,14 +102,16 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
-        return {
+        const authenticatedUser: User = {
           id: user.id,
-          email: user.email,
-          name: user.name,
+          email: user.email ?? undefined,
+          name: user.name ?? undefined,
           role: user.role,
           language: user.language,
           referralCode: user.referralCode,
-        } as any;
+        };
+
+        return authenticatedUser;
       },
     }),
   ],

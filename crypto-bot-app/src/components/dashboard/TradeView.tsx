@@ -18,6 +18,7 @@ const sampleLatency = [38, 42, 47, 33, 29, 35];
 export const TradeView = ({ data }: TradeViewProps) => {
   const { dictionary, locale } = useTranslation();
   const [progress, setProgress] = useState(0);
+  const [currentTime, setCurrentTime] = useState(() => Date.now());
 
   const dateLocale = locale === "tr" ? trLocale : enUS;
 
@@ -30,6 +31,7 @@ export const TradeView = ({ data }: TradeViewProps) => {
       const previous = next - 1000 * 60 * 60 * 2;
       const ratio = (now - previous) / (next - previous);
       setProgress(Math.min(Math.max(ratio * 100, 0), 100));
+      setCurrentTime(now);
     };
 
     calculateProgress();
@@ -37,10 +39,13 @@ export const TradeView = ({ data }: TradeViewProps) => {
     return () => clearInterval(timer);
   }, [nextCycleAt]);
 
-  const tradesToday = data.trading.recentTrades.filter((trade) => {
-    const executed = new Date(trade.executedAt).getTime();
-    return Date.now() - executed < 1000 * 60 * 60 * 24;
-  });
+  const tradesToday = useMemo(() => {
+    const cutoff = currentTime - 1000 * 60 * 60 * 24;
+    return data.trading.recentTrades.filter((trade) => {
+      const executed = new Date(trade.executedAt).getTime();
+      return executed >= cutoff;
+    });
+  }, [currentTime, data.trading.recentTrades]);
 
   const averageProfit = tradesToday.reduce((sum, trade) => sum + trade.profit, 0) / Math.max(tradesToday.length, 1);
 

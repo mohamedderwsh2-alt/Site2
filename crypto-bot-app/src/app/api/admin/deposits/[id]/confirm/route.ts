@@ -1,23 +1,25 @@
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
-import { Prisma } from "@prisma/client";
+import { Prisma } from "@/generated/prisma/client";
 import prisma from "@/lib/prisma";
 import { authOptions } from "@/lib/auth";
-import { REFERRAL_DEPOSIT_BONUS } from "@/lib/trading";
+import { REFERRAL_DEPOSIT_BONUS } from "@/lib/profit";
 
-interface Params {
-  params: { id: string };
+interface RouteContext {
+  params: Promise<{ id: string }>;
 }
 
-export async function POST(_request: Request, { params }: Params) {
+export async function POST(_request: Request, context: RouteContext) {
   const session = await getServerSession(authOptions);
 
   if (!session?.user?.id || session.user.role !== "ADMIN") {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 
+  const { id } = await context.params;
+
   const deposit = await prisma.deposit.findUnique({
-    where: { id: params.id },
+    where: { id },
     include: {
       user: {
         select: {
