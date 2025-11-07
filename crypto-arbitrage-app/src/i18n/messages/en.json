@@ -1,0 +1,163 @@
+{
+  "app": {
+    "title": "Nebula Arbitrage",
+    "description": "Mobile-first e-commerce experience for our Binance & OKX trading bot."
+  },
+  "nav": {
+    "landing": "Overview",
+    "dashboard": "Dashboard",
+    "wallet": "Wallet",
+    "bot": "Bot",
+    "referrals": "Referrals",
+    "support": "Support"
+  },
+  "auth": {
+    "welcomeBack": "Welcome back",
+    "createAccount": "Create account",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "login": "Log in",
+    "register": "Register",
+    "haveAccount": "Already have an account?",
+    "noAccount": "Need an account?",
+    "signOut": "Sign out",
+    "name": "Full name",
+    "referralCode": "Referral code (optional)",
+    "successRedirect": "Account created successfully. You can log in now.",
+    "error": "We could not process your request. Please review the fields and try again.",
+    "loginSubtitle": "Log in to monitor earnings, deposits, and every arbitrage cycle.",
+    "registerSubtitle": "Activate your arbitrage bot license and access mobile-style dashboards."
+  },
+  "landing": {
+    "heroHeadline": "Capture exchange spreads like a native app",
+    "heroTagline": "A mobile-style trading experience that automates Binance & OKX arbitrage.",
+    "cta": "Launch App",
+    "ctaSecondary": "Watch Demo",
+    "howItWorks": "How it works",
+    "howItWorksSteps": [
+      "Deposit USDT to the shared vault address.",
+      "Purchase a bot license once your balance is confirmed.",
+      "Every two hours the bot executes new spread trades.",
+      "Daily earnings are credited to your wallet automatically."
+    ],
+    "profitShowcase": "Example earnings",
+    "featuresTitle": "Designed for mobile storytelling",
+    "featureCards": [
+      {
+        "title": "Native gestures",
+        "description": "Bottom navigation, swipeable panels, glassmorphism, and ambient sparkles keep users engaged."
+      },
+      {
+        "title": "Live arbitrage pulse",
+        "description": "Real-time visuals compare Binance & OKX quotes, highlighting spreads above 3%."
+      },
+      {
+        "title": "Investor storytelling",
+        "description": "Blend functional modules with demo-only scenes to sell the vision to stakeholders."
+      }
+    ],
+    "referralHighlight": "Earn 5% instantly plus 20% of your invitees’ profits, forever.",
+    "supportHeadline": "Need help?",
+    "supportCopy": "Join the Telegram operators desk to get verified faster, review payout proofs, and request manual withdrawals.",
+    "telegramButton": "Open Telegram Support",
+    "languageTitle": "Choose language"
+  },
+  "dashboard": {
+    "greeting": "Hey {name}",
+    "activateBot": "Activate trading bot",
+    "botActive": "Bot is running",
+    "nextCycle": "Next cycle",
+    "todayProfit": "Today’s profit",
+    "cycleProfit": "Per cycle",
+    "capital": "Trading capital",
+    "walletBalance": "Wallet balance",
+    "totalEarnings": "Total earnings",
+    "referralEarnings": "Referral earnings",
+    "quickActions": "Quick actions",
+    "deposit": "Deposit",
+    "withdraw": "Withdraw",
+    "buyLicense": "Buy bot license",
+    "viewBot": "Bot studio",
+    "recentTrades": "Recent trades",
+    "recentActivity": "Recent activity",
+    "emptyState": "No activity yet. Deposit funds or explore the demo scene."
+  },
+  "wallet": {
+    "title": "Wallet center",
+    "depositTitle": "Deposit",
+    "withdrawTitle": "Withdraw",
+    "centralAddress": "Central USDT address",
+    "copyAddress": "Copy address",
+    "amount": "Amount (USDT)",
+    "txHash": "Transaction hash (optional)",
+    "note": "Note",
+    "submit": "Submit request",
+    "addressLabel": "Your USDT address",
+    "passwordLabel": "Confirm with password",
+    "history": "Wallet history",
+    "totalDeposited": "Total deposited",
+    "totalWithdrawn": "Total withdrawn",
+    "totalEarnings": "Total earnings",
+    "capital": "Trading capital",
+    "status": {
+      "PENDING": "Pending",
+      "PROCESSING": "Processing",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "CANCELLED": "Cancelled"
+    }
+  },
+  "bot": {
+    "title": "Arbitrage bot studio",
+    "summary": "Here’s how the Binance ↔ OKX spread arbitrage performs today.",
+    "cyclesCompleted": "Cycles today",
+    "profitPerCycle": "Profit per cycle",
+    "liveBadge": "Live",
+    "demoNotice": "The following cards are presentation-only materials designed to explain the system.",
+    "noTrades": "No trades recorded yet.",
+    "spreadNow": "Live spread",
+    "latency": "Latency",
+    "capitalEmployed": "Capital deployed per trade (10%)",
+    "tradeFeed": "Trade timeline",
+    "demoHeadline": "Demo visualisations",
+    "demoCopy": "These charts simulate order flow for presentation purposes. Functional data is still live above."
+  },
+  "referrals": {
+    "title": "Referral universe",
+    "shareCode": "Share your code",
+    "copyLink": "Copy invite link",
+    "totalPartners": "Partners invited",
+    "lifetimeEarnings": "Lifetime earnings",
+    "commissionExplainer": "Earn 5% instantly when your invite deposits, plus 20% of their future profits.",
+    "recentRewards": "Recent rewards",
+    "depositBonus": "Deposit bonus",
+    "profitShare": "Profit share"
+  },
+  "support": {
+    "title": "Support & Docs",
+    "telegramCta": "Join Telegram support",
+    "knowledgeBase": "Knowledge base",
+    "articlesIntro": "Learn how spreads are captured, how funds are protected, and how to scale referrals."
+  },
+  "common": {
+    "loading": "Loading…",
+    "cancel": "Cancel",
+    "save": "Save",
+    "demoOnly": "Demo only",
+    "functional": "Functional",
+    "copied": "Copied!",
+    "copy": "Copy",
+    "comingSoon": "Coming soon",
+    "anonymous": "Anonymous partner",
+    "viewAll": "View all",
+    "updated": "Updated",
+    "language": "Language"
+  },
+  "notifications": {
+    "depositSubmitted": "Deposit request submitted",
+    "withdrawSubmitted": "Withdrawal request submitted",
+    "botActivated": "Trading bot activated",
+    "error": "Something went wrong. Try again."
+  }
+}

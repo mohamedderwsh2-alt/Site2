@@ -1,0 +1,163 @@
+{
+  "app": {
+    "title": "Nebula Arbitrage",
+    "description": "Binance ve OKX arbitraj botu için mobil uygulama deneyimi."
+  },
+  "nav": {
+    "landing": "Genel bakış",
+    "dashboard": "Panel",
+    "wallet": "Cüzdan",
+    "bot": "Bot",
+    "referrals": "Referanslar",
+    "support": "Destek"
+  },
+  "auth": {
+    "welcomeBack": "Tekrar hoş geldin",
+    "createAccount": "Hesap oluştur",
+    "email": "E-posta",
+    "password": "Şifre",
+    "confirmPassword": "Şifreyi doğrula",
+    "login": "Giriş yap",
+    "register": "Kayıt ol",
+    "haveAccount": "Zaten hesabın var mı?",
+    "noAccount": "Hesabın yok mu?",
+    "signOut": "Çıkış yap",
+    "name": "Ad soyad",
+    "referralCode": "Referans kodu (opsiyonel)",
+    "successRedirect": "Hesabın oluşturuldu. Şimdi giriş yapabilirsin.",
+    "error": "İsteğin işlenemedi. Alanları kontrol edip tekrar dene.",
+    "loginSubtitle": "Kazançlarını, yatırımlarını ve her arbitraj döngüsünü takip etmek için giriş yap.",
+    "registerSubtitle": "Arbitraj bot lisansını etkinleştir ve mobil tarz panellere eriş."
+  },
+  "landing": {
+    "heroHeadline": "Borsalar arası farkları mobil uygulama gibi yakala",
+    "heroTagline": "Binance ve OKX arbitrajını otomatikleştiren mobil odaklı deneyim.",
+    "cta": "Uygulamayı aç",
+    "ctaSecondary": "Demosu izle",
+    "howItWorks": "Nasıl çalışır",
+    "howItWorksSteps": [
+      "USDT bakiyeni ortak cüzdan adresine yatır.",
+      "Bakiye onaylanınca bot lisansını satın al.",
+      "Bot her iki saatte bir yeni al-sat işlemi yapar.",
+      "Günlük kazançlar otomatik olarak cüzdanına düşer."
+    ],
+    "profitShowcase": "Örnek kazanç tablosu",
+    "featuresTitle": "Mobil hikaye anlatımı için tasarlandı",
+    "featureCards": [
+      {
+        "title": "Doğal hareketler",
+        "description": "Alt menü, kaydırılabilir paneller ve cam efekti kullanıcıyı ekranda tutar."
+      },
+      {
+        "title": "Canlı arbitraj nabzı",
+        "description": "Binance ve OKX fiyatlarını karşılaştırır, %3 üzeri farkları vurgular."
+      },
+      {
+        "title": "Yatırımcı sunumu",
+        "description": "Yatırımcılara vizyonu göstermek için işlevsel modüller ile demo sahneleri harmanlanır."
+      }
+    ],
+    "referralHighlight": "Davetlin yatırdığında anında %5, tüm kârlarından ömür boyu %20 kazan.",
+    "supportHeadline": "Yardıma mı ihtiyacın var?",
+    "supportCopy": "Telegram destek grubuna katıl, onayını hızlandır, ödeme kanıtlarını gör ve manuel çekim iste.",
+    "telegramButton": "Telegram desteğini aç",
+    "languageTitle": "Dil seç"
+  },
+  "dashboard": {
+    "greeting": "Merhaba {name}",
+    "activateBot": "Trading botunu aktive et",
+    "botActive": "Bot çalışıyor",
+    "nextCycle": "Sonraki döngü",
+    "todayProfit": "Bugünkü kazanç",
+    "cycleProfit": "Döngü başına",
+    "capital": "İşlem sermayesi",
+    "walletBalance": "Cüzdan bakiyesi",
+    "totalEarnings": "Toplam kazanç",
+    "referralEarnings": "Referans kazançları",
+    "quickActions": "Hızlı işlemler",
+    "deposit": "Yatır",
+    "withdraw": "Çek",
+    "buyLicense": "Bot lisansı al",
+    "viewBot": "Bot stüdyosu",
+    "recentTrades": "Son işlemler",
+    "recentActivity": "Son hareketler",
+    "emptyState": "Henüz hareket yok. Bakiye ekle veya demo sahnesine göz at."
+  },
+  "wallet": {
+    "title": "Cüzdan merkezi",
+    "depositTitle": "Yatırma",
+    "withdrawTitle": "Çekme",
+    "centralAddress": "Merkezi USDT adresi",
+    "copyAddress": "Adresi kopyala",
+    "amount": "Tutar (USDT)",
+    "txHash": "İşlem hash'i (opsiyonel)",
+    "note": "Not",
+    "submit": "Talebi gönder",
+    "addressLabel": "USDT adresin",
+    "passwordLabel": "Şifre ile onayla",
+    "history": "Cüzdan geçmişi",
+    "totalDeposited": "Toplam yatırılan",
+    "totalWithdrawn": "Toplam çekilen",
+    "totalEarnings": "Toplam kazanç",
+    "capital": "İşlem sermayesi",
+    "status": {
+      "PENDING": "Beklemede",
+      "PROCESSING": "İşleniyor",
+      "COMPLETED": "Tamamlandı",
+      "FAILED": "Başarısız",
+      "CANCELLED": "İptal"
+    }
+  },
+  "bot": {
+    "title": "Arbitraj bot stüdyosu",
+    "summary": "Binance ↔ OKX arbitraj performansının bugünkü özeti.",
+    "cyclesCompleted": "Bugünkü döngüler",
+    "profitPerCycle": "Her döngü kazancı",
+    "liveBadge": "Canlı",
+    "demoNotice": "Aşağıdaki kartlar sistemi anlatmak için hazırlanmış sunum niteliğindedir.",
+    "noTrades": "Henüz kayıtlı işlem yok.",
+    "spreadNow": "Anlık fark",
+    "latency": "Gecikme",
+    "capitalEmployed": "İşlem başına kullanılan sermaye (10%)",
+    "tradeFeed": "İşlem zaman çizelgesi",
+    "demoHeadline": "Demo görseller",
+    "demoCopy": "Bu grafikler sunum amaçlı simüle edilmiştir. Üst bölümdeki veriler canlıdır."
+  },
+  "referrals": {
+    "title": "Referans evreni",
+    "shareCode": "Kodunu paylaş",
+    "copyLink": "Davet linkini kopyala",
+    "totalPartners": "Davet edilen ortaklar",
+    "lifetimeEarnings": "Toplam kazanç",
+    "commissionExplainer": "Davetlin yatırdığında %5, sonraki kârlarından %20 kazan.",
+    "recentRewards": "Son ödüller",
+    "depositBonus": "Yatırım bonusu",
+    "profitShare": "Kâr paylaşımı"
+  },
+  "support": {
+    "title": "Destek ve dokümanlar",
+    "telegramCta": "Telegram desteğine katıl",
+    "knowledgeBase": "Bilgi merkezi",
+    "articlesIntro": "Spread’leri nasıl yakaladığımızı, fonları nasıl koruduğumuzu ve referansları nasıl büyüttüğümüzü öğren."
+  },
+  "common": {
+    "loading": "Yükleniyor…",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "demoOnly": "Yalnızca demo",
+    "functional": "Fonksiyonel",
+    "copied": "Kopyalandı!",
+    "copy": "Kopyala",
+    "comingSoon": "Çok yakında",
+    "anonymous": "Anonim ortak",
+    "viewAll": "Tümünü gör",
+    "updated": "Güncellendi",
+    "language": "Dil"
+  },
+  "notifications": {
+    "depositSubmitted": "Yatırma talebi gönderildi",
+    "withdrawSubmitted": "Çekim talebi gönderildi",
+    "botActivated": "Trading botu aktive edildi",
+    "error": "Bir hata oluştu. Lütfen tekrar dene."
+  }
+}
