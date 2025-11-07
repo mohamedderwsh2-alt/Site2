@@ -1,0 +1,213 @@
+{
+  "app": {
+    "name": "ArbiPulse",
+    "tagline": "Automated Binance ↔ OKX spread intelligence"
+  },
+  "nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "portfolio": "Portfolio",
+    "bot": "Trading Bot",
+    "deposit": "Deposit",
+    "withdraw": "Withdraw",
+    "referrals": "Referrals",
+    "articles": "Knowledge Hub",
+    "support": "Support",
+    "settings": "Settings",
+    "logout": "Sign out",
+    "login": "Log in",
+    "register": "Create account"
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Track your arbitrage earnings and manage your wallet.",
+      "cta": "Sign in",
+      "noAccount": "Don't have an account?",
+      "goRegister": "Create one"
+    },
+    "register": {
+      "title": "Create your ArbiPulse account",
+      "subtitle": "Activate the Binance ↔ OKX arbitrage bot in minutes.",
+      "cta": "Join now",
+      "haveAccount": "Already have an account?",
+      "goLogin": "Sign in"
+    },
+    "form": {
+      "name": "Full name",
+      "email": "Email address",
+      "password": "Password",
+      "referral": "Referral code (optional)",
+      "locale": "Language",
+      "tos": "By continuing you accept the Terms of Service and acknowledge the risks of cryptocurrency trading."
+    },
+    "messages": {
+      "registerSuccess": "Account created successfully. You can sign in now.",
+      "invalidCredentials": "Invalid email or password.",
+      "genericError": "Something went wrong. Please try again."
+    }
+  },
+  "landing": {
+    "heroTitle": "Mobile-native crypto ecommerce experience",
+    "heroSubtitle": "Discover an app-style interface for purchasing AI-powered arbitrage bots, tracking automated trades, and managing USDT cash flow.",
+    "ctaPrimary": "Get started",
+    "ctaSecondary": "See live demo",
+    "featureCards": [
+      {
+        "title": "Every 2 hours",
+        "description": "The bot scans Binance & OKX spreads and executes a hedged trade under 50ms."
+      },
+      {
+        "title": "Fixed profit table",
+        "description": "Daily earnings are based on your active balance and distributed every 2 hours."
+      },
+      {
+        "title": "Referral momentum",
+        "description": "Earn 5% instantly on referrals' deposits plus 20% of their ongoing profits."
+      }
+    ],
+    "demoTitle": "Interactive product demo",
+    "demoDescription": "Visual-only flows showcase how real users buy the bot, monitor trades, and track earnings across devices."
+  },
+  "bot": {
+    "title": "Arbitrage Bot",
+    "planPrice": "Bot access",
+    "planPriceValue": "{amount} USDT one-time",
+    "execution": "Executes trades on Binance & OKX every 2 hours",
+    "profitShare": "Distributes 3% profit per cycle to active users",
+    "riskControl": "Uses 10% of balance per trade to limit exposure",
+    "purchaseCta": "Activate bot"
+  },
+    "wallet": {
+      "balance": "Wallet balance",
+      "pending": "Pending earnings",
+      "depositTitle": "Deposit USDT",
+      "depositSubtitle": "Send funds to the shared wallet address. Include your referral code in the memo if required.",
+      "depositAddressLabel": "USDT wallet address",
+      "depositNote": "Deposits are credited after network confirmation by the operations team.",
+      "depositFormTitle": "Submit deposit confirmation",
+      "depositReference": "Transaction hash / memo (optional)",
+      "depositSubmit": "Notify deposit",
+      "copy": "Copy",
+      "withdrawTitle": "Withdraw USDT",
+      "withdrawAddress": "Recipient USDT address",
+      "withdrawAmount": "Amount (USDT)",
+      "withdrawPassword": "Account password",
+      "withdrawSubmit": "Request withdrawal",
+      "withdrawNote": "Withdrawal requests are reviewed manually to protect user funds.",
+      "history": {
+        "deposits": "Deposit history",
+        "withdrawals": "Withdrawal history",
+        "empty": "No records yet."
+      }
+    },
+  "referral": {
+    "title": "Referral engine",
+    "headline": "Invite friends, grow your passive income",
+    "bonusDeposit": "Earn 5% instantly on each referral's deposit.",
+    "bonusProfit": "Get 20% of their future profits automatically.",
+    "yourCode": "Your referral code",
+    "copyCode": "Copy code",
+    "stats": {
+      "deposits": "Referral deposits",
+      "profits": "Profit share",
+      "teamSize": "Active partners"
+    },
+    "teamTitle": "Your invited users",
+    "historyTitle": "Referral payouts",
+    "emptyTeam": "No partners yet. Share your code to start earning.",
+    "emptyHistory": "Referral rewards will appear here."
+  },
+  "support": {
+    "title": "Need help?",
+    "subtitle": "Talk to our team directly on Telegram.",
+    "cta": "Open Telegram support",
+    "articlesTitle": "Understand the strategy",
+    "articleHow": {
+      "title": "How does the bot generate profit?",
+      "body": [
+        "Our trading bot exploits price gaps between OKX and Binance.",
+        "Every two hours it scans both exchanges. When the spread exceeds 3%, it opens a synchronized buy/sell.",
+        "Only 10% of your balance is used per trade, reducing exposure to volatility.",
+        "Each trade executes in under 50 milliseconds to secure the spread.",
+        "Profits are then split equally (3%) among active users, and a small portion funds ongoing development."
+      ]
+    }
+  },
+  "dashboard": {
+    "overview": {
+      "balanceTitle": "Wallet balance",
+      "botStatus": "Bot status",
+      "botActive": "Bot running",
+      "botInactive": "Bot inactive",
+      "todayProfit": "Today's bot profit",
+      "todayReferral": "Referral profit today",
+      "nextCycle": "Next trade in",
+      "activateBot": "Activate bot (5 USDT)",
+      "activationNote": "You need at least 5 USDT available to start the bot.",
+      "demoTopUp": "Add demo funds (+100 USDT)",
+      "recentCycles": "Latest profit cycles",
+      "emptyProfits": "No profit cycles recorded yet.",
+      "pendingRequests": "Pending requests",
+      "deposits": "Deposits",
+      "withdrawals": "Withdrawals",
+      "referralCode": "Your referral code",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "shareCta": "Share with partners",
+      "referralSummary": {
+        "title": "Referral summary",
+        "teamMembers": "Active partners",
+        "today": "Referral profit today"
+      },
+      "quickLinks": {
+        "deposit": "Go to deposit",
+        "withdraw": "Go to withdraw",
+        "referrals": "Referral program"
+      },
+      "errors": {
+        "INSUFFICIENT_FUNDS": "Add at least 5 USDT to start the bot.",
+        "BOT_ALREADY_ACTIVE": "Your bot is already active.",
+        "UNAUTHENTICATED": "Please sign in again.",
+        "USER_NOT_FOUND": "Account not found.",
+        "INVALID_INPUT": "Please enter a valid amount.",
+        "INVALID_PASSWORD": "Password is incorrect."
+      },
+      "success": {
+        "BOT_ACTIVATED": "Trading bot activated. First trade in two hours.",
+        "DEMO_TOPUP": "Demo funds added to your balance."
+      }
+    }
+  },
+  "earnings": {
+    "title": "Daily profit reference",
+    "tableHead": {
+      "balance": "Balance (USDT)",
+      "profit": "Daily profit (USDT)"
+    },
+    "rows": [
+      {"balance": "20.00", "profit": "3.00"},
+      {"balance": "99.00", "profit": "16.83"},
+      {"balance": "458.00", "profit": "91.60"},
+      {"balance": "1288.00", "profit": "283.36"},
+      {"balance": "4388.00", "profit": "1097.00"},
+      {"balance": "10888.00", "profit": "3048.64"},
+      {"balance": "25888.00", "profit": "8284.16"}
+    ],
+    "disclaimer": "Profits are distributed every two hours according to the fixed performance table."
+  },
+  "status": {
+    "awaiting": "Awaiting confirmation",
+    "completed": "Completed",
+    "cancelled": "Cancelled"
+  },
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "comingSoon": "Coming soon",
+    "demoOnly": "Demo preview",
+    "copied": "Copied",
+    "language": "Language"
+  }
+}

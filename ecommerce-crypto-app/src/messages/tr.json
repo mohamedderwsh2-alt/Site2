@@ -1,0 +1,213 @@
+{
+  "app": {
+    "name": "ArbiPulse",
+    "tagline": "Binance ↔ OKX spread istihbaratı"
+  },
+  "nav": {
+    "home": "Ana sayfa",
+    "dashboard": "Kontrol paneli",
+    "portfolio": "Portföy",
+    "bot": "Alım-satım botu",
+    "deposit": "Yatırım",
+    "withdraw": "Çekim",
+    "referrals": "Referanslar",
+    "articles": "Bilgi merkezi",
+    "support": "Destek",
+    "settings": "Ayarlar",
+    "logout": "Çıkış yap",
+    "login": "Giriş yap",
+    "register": "Hesap oluştur"
+  },
+  "auth": {
+    "login": {
+      "title": "Tekrar hoş geldiniz",
+      "subtitle": "Arbitraj kazançınızı takip edin ve cüzdanınızı yönetin.",
+      "cta": "Giriş yap",
+      "noAccount": "Hesabınız yok mu?",
+      "goRegister": "Hemen oluşturun"
+    },
+    "register": {
+      "title": "ArbiPulse hesabınızı oluşturun",
+      "subtitle": "Binance ↔ OKX arbitraj botunu dakikalar içinde aktive edin.",
+      "cta": "Aramıza katıl",
+      "haveAccount": "Zaten hesabınız var mı?",
+      "goLogin": "Giriş yapın"
+    },
+    "form": {
+      "name": "Ad soyad",
+      "email": "E-posta adresi",
+      "password": "Şifre",
+      "referral": "Referans kodu (isteğe bağlı)",
+      "locale": "Dil",
+      "tos": "Devam ederek Hizmet Şartları'nı kabul eder ve kripto para işlemlerindeki riskleri onaylarsınız."
+    },
+    "messages": {
+      "registerSuccess": "Hesabınız oluşturuldu. Şimdi giriş yapabilirsiniz.",
+      "invalidCredentials": "E-posta veya şifre hatalı.",
+      "genericError": "Bir sorun oluştu. Lütfen tekrar deneyin."
+    }
+  },
+  "landing": {
+    "heroTitle": "Mobil uygulama hissi veren kripto e-ticaret",
+    "heroSubtitle": "Yapay zekâ destekli arbitraj botlarını satın almak, otomatik işlemleri izlemek ve USDT akışını yönetmek için uygulama benzeri bir arayüz.",
+    "ctaPrimary": "Başlayın",
+    "ctaSecondary": "Canlı demoyu incele",
+    "featureCards": [
+      {
+        "title": "Her 2 saatte bir",
+        "description": "Bot, Binance ve OKX arasındaki farkı tarayıp 50 ms altında hedge işlemi yapar."
+      },
+      {
+        "title": "Sabit kâr tablosu",
+        "description": "Günlük kazanç, aktif bakiyenize göre hesaplanır ve her 2 saatte dağıtılır."
+      },
+      {
+        "title": "Referans ivmesi",
+        "description": "Referanslarınızın yatırımlarından anında %5, kazançlarından ise sürekli %20 pay alın."
+      }
+    ],
+    "demoTitle": "Etkileşimli ürün demosu",
+    "demoDescription": "Görsel akışlar, gerçek kullanıcıların bot satın alma, işlemleri izleme ve kazançlarını cihazlar arasında takip etme deneyimini gösterir."
+  },
+  "bot": {
+    "title": "Arbitraj Botu",
+    "planPrice": "Bot erişimi",
+    "planPriceValue": "{amount} USDT tek sefer",
+    "execution": "Binance & OKX üzerinde her 2 saatte işlem yapar",
+    "profitShare": "Her döngü sonunda aktif kullanıcılara %3 kâr dağıtır",
+    "riskControl": "Her işlemde bakiyenin yalnızca %10'unu kullanır",
+    "purchaseCta": "Botu aktive et"
+  },
+    "wallet": {
+      "balance": "Cüzdan bakiyesi",
+      "pending": "Bekleyen kazanç",
+      "depositTitle": "USDT yatırın",
+      "depositSubtitle": "Fonları ortak cüzdan adresine gönderin. Gerekirse açıklama kısmına referans kodunuzu ekleyin.",
+      "depositAddressLabel": "USDT cüzdan adresi",
+      "depositNote": "Yatırımlar ağ onayı sonrası operasyon ekibimiz tarafından tanımlanır.",
+      "depositFormTitle": "Yatırım bildirimi gönder",
+      "depositReference": "İşlem hash'i / açıklama (isteğe bağlı)",
+      "depositSubmit": "Yatırımı bildir",
+      "copy": "Kopyala",
+      "withdrawTitle": "USDT çekin",
+      "withdrawAddress": "Alıcı USDT adresi",
+      "withdrawAmount": "Tutar (USDT)",
+      "withdrawPassword": "Hesap şifresi",
+      "withdrawSubmit": "Çekim talebi oluştur",
+      "withdrawNote": "Çekim talepleri, kullanıcı fonlarını korumak için manuel olarak onaylanır.",
+      "history": {
+        "deposits": "Yatırım geçmişi",
+        "withdrawals": "Çekim geçmişi",
+        "empty": "Henüz kayıt bulunmuyor."
+      }
+    },
+  "referral": {
+    "title": "Referans motoru",
+    "headline": "Arkadaşlarınızı davet edin, pasif gelir elde edin",
+    "bonusDeposit": "Her referans yatırımından anında %5 kazanın.",
+    "bonusProfit": "Gelecek kazançlarının %20'sini otomatik olarak alın.",
+    "yourCode": "Referans kodunuz",
+    "copyCode": "Kodu kopyala",
+    "stats": {
+      "deposits": "Referans yatırımları",
+      "profits": "Kazanç payı",
+      "teamSize": "Aktif ortaklar"
+    },
+    "teamTitle": "Davet ettiğiniz kullanıcılar",
+    "historyTitle": "Referans ödemeleri",
+    "emptyTeam": "Henüz ortağınız yok. Kodunuzu paylaşarak kazanmaya başlayın.",
+    "emptyHistory": "Referans kazançları burada görüntülenecek."
+  },
+  "support": {
+    "title": "Yardıma mı ihtiyacınız var?",
+    "subtitle": "Telegram üzerinden ekibimizle hemen iletişime geçin.",
+    "cta": "Telegram desteğini aç",
+    "articlesTitle": "Stratejiyi anlayın",
+    "articleHow": {
+      "title": "Bot nasıl kâr üretiyor?",
+      "body": [
+        "Alım-satım botumuz OKX ve Binance arasındaki fiyat farklarını kullanır.",
+        "Her iki saatte bir piyasayı tarar; fark %3'ü aştığında eş zamanlı alım-satım yapar.",
+        "Her işlemde bakiyenizin yalnızca %10'u kullanılır ve dalgalanma riski azaltılır.",
+        "İşlemler 50 milisaniyeden kısa sürede tamamlanır.",
+        "Kârın %3'lük kısmı aktif kullanıcılara eşit dağıtılır, küçük bir bölüm ise geliştirme ve ekip maaşlarına ayrılır."
+      ]
+    }
+  },
+  "dashboard": {
+    "overview": {
+      "balanceTitle": "Cüzdan bakiyesi",
+      "botStatus": "Bot durumu",
+      "botActive": "Bot çalışıyor",
+      "botInactive": "Bot pasif",
+      "todayProfit": "Bugünkü bot kazancı",
+      "todayReferral": "Bugünkü referans kazancı",
+      "nextCycle": "Sonraki işlem",
+      "activateBot": "Botu aktive et (5 USDT)",
+      "activationNote": "Botu başlatmak için en az 5 USDT bakiyeniz olmalı.",
+      "demoTopUp": "Demo bakiye ekle (+100 USDT)",
+      "recentCycles": "Son kâr döngüleri",
+      "emptyProfits": "Henüz kâr döngüsü kaydı yok.",
+      "pendingRequests": "Bekleyen talepler",
+      "deposits": "Yatırımlar",
+      "withdrawals": "Çekimler",
+      "referralCode": "Referans kodunuz",
+      "copy": "Kopyala",
+      "copied": "Kopyalandı!",
+      "shareCta": "Ortaklarınızla paylaşın",
+      "referralSummary": {
+        "title": "Referans özeti",
+        "teamMembers": "Aktif ortaklar",
+        "today": "Bugünkü referans kazancı"
+      },
+      "quickLinks": {
+        "deposit": "Yatırım sayfasına git",
+        "withdraw": "Çekim sayfasına git",
+        "referrals": "Referans programı"
+      },
+      "errors": {
+        "INSUFFICIENT_FUNDS": "Botu başlatmak için en az 5 USDT ekleyin.",
+        "BOT_ALREADY_ACTIVE": "Botunuz zaten aktif.",
+        "UNAUTHENTICATED": "Lütfen tekrar giriş yapın.",
+        "USER_NOT_FOUND": "Hesap bulunamadı.",
+        "INVALID_INPUT": "Lütfen geçerli bir tutar girin.",
+        "INVALID_PASSWORD": "Şifre hatalı."
+      },
+      "success": {
+        "BOT_ACTIVATED": "Alım-satım botu aktif. İlk işlem iki saat içinde başlayacak.",
+        "DEMO_TOPUP": "Demo bakiyesi hesabınıza eklendi."
+      }
+    }
+  },
+  "earnings": {
+    "title": "Günlük kâr tablosu",
+    "tableHead": {
+      "balance": "Bakiye (USDT)",
+      "profit": "Günlük kâr (USDT)"
+    },
+    "rows": [
+      {"balance": "20.00", "profit": "3.00"},
+      {"balance": "99.00", "profit": "16.83"},
+      {"balance": "458.00", "profit": "91.60"},
+      {"balance": "1288.00", "profit": "283.36"},
+      {"balance": "4388.00", "profit": "1097.00"},
+      {"balance": "10888.00", "profit": "3048.64"},
+      {"balance": "25888.00", "profit": "8284.16"}
+    ],
+    "disclaimer": "Kârlar sabit performans tablosuna göre her iki saatte dağıtılır."
+  },
+  "status": {
+    "awaiting": "Onay bekliyor",
+    "completed": "Tamamlandı",
+    "cancelled": "İptal edildi"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "comingSoon": "Çok yakında",
+    "demoOnly": "Sadece demo",
+    "copied": "Kopyalandı",
+    "language": "Dil"
+  }
+}
