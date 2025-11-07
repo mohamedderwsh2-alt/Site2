@@ -1,0 +1,4 @@
+export const BOT_LICENSE_COST = 5;
+export const REFERRAL_DEPOSIT_BONUS_RATE = 0.05;
+export const REFERRAL_PROFIT_SHARE_RATE = 0.2;
+export const WITHDRAWAL_MIN_AMOUNT = 5;

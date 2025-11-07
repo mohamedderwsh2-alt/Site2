@@ -1,0 +1,163 @@
+{
+  "app": {
+    "title": "Nebula Arbitrage",
+    "description": "Experiencia móvil para el bot de arbitraje entre Binance y OKX."
+  },
+  "nav": {
+    "landing": "Resumen",
+    "dashboard": "Panel",
+    "wallet": "Billetera",
+    "bot": "Bot",
+    "referrals": "Referidos",
+    "support": "Soporte"
+  },
+  "auth": {
+    "welcomeBack": "Bienvenido de nuevo",
+    "createAccount": "Crear cuenta",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "haveAccount": "¿Ya tienes cuenta?",
+    "noAccount": "¿Necesitas una cuenta?",
+    "signOut": "Cerrar sesión",
+    "name": "Nombre completo",
+    "referralCode": "Código de referido (opcional)",
+    "successRedirect": "Cuenta creada con éxito. Ya puedes iniciar sesión.",
+    "error": "No pudimos procesar tu solicitud. Revisa los campos e inténtalo nuevamente.",
+    "loginSubtitle": "Inicia sesión para seguir tus ganancias, depósitos y cada ciclo de arbitraje.",
+    "registerSubtitle": "Activa la licencia de tu bot de arbitraje y accede a paneles estilo móvil."
+  },
+  "landing": {
+    "heroHeadline": "Aprovecha los diferenciales como si fuera una app nativa",
+    "heroTagline": "Una experiencia móvil que automatiza el arbitraje entre Binance y OKX.",
+    "cta": "Abrir aplicación",
+    "ctaSecondary": "Ver demo",
+    "howItWorks": "Cómo funciona",
+    "howItWorksSteps": [
+      "Deposita USDT en la dirección compartida.",
+      "Compra la licencia del bot cuando se confirme tu saldo.",
+      "Cada dos horas el bot ejecuta nuevas operaciones.",
+      "Las ganancias diarias llegan automáticamente a tu billetera."
+    ],
+    "profitShowcase": "Ganancias de ejemplo",
+    "featuresTitle": "Diseñado para lucir en móviles",
+    "featureCards": [
+      {
+        "title": "Gestos nativos",
+        "description": "Navegación inferior, paneles deslizables y efectos de vidrio mantienen a los usuarios atentos."
+      },
+      {
+        "title": "Pulso de arbitraje",
+        "description": "Visuales en vivo comparan las cotizaciones de Binance y OKX, resaltando diferenciales superiores al 3%."
+      },
+      {
+        "title": "Historia para inversores",
+        "description": "Mezcla módulos funcionales con escenas demo para convencer a los socios."
+      }
+    ],
+    "referralHighlight": "Gana 5% al instante y 20% de las utilidades futuras de tus invitados.",
+    "supportHeadline": "¿Necesitas ayuda?",
+    "supportCopy": "Únete al grupo de Telegram para verificaciones más rápidas, pruebas de pagos y retiros manuales.",
+    "telegramButton": "Abrir soporte en Telegram",
+    "languageTitle": "Elige idioma"
+  },
+  "dashboard": {
+    "greeting": "Hola {name}",
+    "activateBot": "Activar bot de trading",
+    "botActive": "Bot en ejecución",
+    "nextCycle": "Próximo ciclo",
+    "todayProfit": "Ganancia de hoy",
+    "cycleProfit": "Por ciclo",
+    "capital": "Capital de trading",
+    "walletBalance": "Saldo en billetera",
+    "totalEarnings": "Ganancias totales",
+    "referralEarnings": "Ganancias por referidos",
+    "quickActions": "Acciones rápidas",
+    "deposit": "Depositar",
+    "withdraw": "Retirar",
+    "buyLicense": "Comprar licencia",
+    "viewBot": "Estudio del bot",
+    "recentTrades": "Operaciones recientes",
+    "recentActivity": "Actividad reciente",
+    "emptyState": "Aún no hay actividad. Deposita fondos o explora la escena demo."
+  },
+  "wallet": {
+    "title": "Centro de billetera",
+    "depositTitle": "Depositar",
+    "withdrawTitle": "Retirar",
+    "centralAddress": "Dirección USDT central",
+    "copyAddress": "Copiar dirección",
+    "amount": "Monto (USDT)",
+    "txHash": "Hash de la transacción (opcional)",
+    "note": "Nota",
+    "submit": "Enviar solicitud",
+    "addressLabel": "Tu dirección USDT",
+    "passwordLabel": "Confirma con tu contraseña",
+    "history": "Historial de billetera",
+    "totalDeposited": "Total depositado",
+    "totalWithdrawn": "Total retirado",
+    "totalEarnings": "Ganancias totales",
+    "capital": "Capital de trading",
+    "status": {
+      "PENDING": "Pendiente",
+      "PROCESSING": "Procesando",
+      "COMPLETED": "Completado",
+      "FAILED": "Fallido",
+      "CANCELLED": "Cancelado"
+    }
+  },
+  "bot": {
+    "title": "Estudio del bot de arbitraje",
+    "summary": "Así rinde hoy el arbitraje Binance ↔ OKX.",
+    "cyclesCompleted": "Ciclos de hoy",
+    "profitPerCycle": "Ganancia por ciclo",
+    "liveBadge": "En vivo",
+    "demoNotice": "Las siguientes tarjetas son materiales de presentación pensados para explicar el sistema.",
+    "noTrades": "Aún no hay operaciones registradas.",
+    "spreadNow": "Diferencial en vivo",
+    "latency": "Latencia",
+    "capitalEmployed": "Capital usado por operación (10%)",
+    "tradeFeed": "Cronología de operaciones",
+    "demoHeadline": "Visualizaciones demo",
+    "demoCopy": "Estos gráficos simulan el flujo de órdenes a modo de presentación. Los datos funcionales están arriba."
+  },
+  "referrals": {
+    "title": "Universo de referidos",
+    "shareCode": "Comparte tu código",
+    "copyLink": "Copiar enlace de invitación",
+    "totalPartners": "Socios invitados",
+    "lifetimeEarnings": "Ganancias acumuladas",
+    "commissionExplainer": "Gana 5% instantáneo cuando tu invitado deposita y 20% de sus utilidades futuras.",
+    "recentRewards": "Recompensas recientes",
+    "depositBonus": "Bono por depósito",
+    "profitShare": "Participación de ganancias"
+  },
+  "support": {
+    "title": "Soporte y documentación",
+    "telegramCta": "Unirse al soporte en Telegram",
+    "knowledgeBase": "Base de conocimiento",
+    "articlesIntro": "Descubre cómo capturamos diferenciales, protegemos fondos y escalamos el programa de referidos."
+  },
+  "common": {
+    "loading": "Cargando…",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "demoOnly": "Solo demo",
+    "functional": "Funcional",
+    "copied": "¡Copiado!",
+    "copy": "Copiar",
+    "comingSoon": "Próximamente",
+    "anonymous": "Socio anónimo",
+    "viewAll": "Ver todo",
+    "updated": "Actualizado",
+    "language": "Idioma"
+  },
+  "notifications": {
+    "depositSubmitted": "Solicitud de depósito enviada",
+    "withdrawSubmitted": "Solicitud de retiro enviada",
+    "botActivated": "Bot de trading activado",
+    "error": "Ocurrió un error. Inténtalo de nuevo."
+  }
+}

@@ -1,0 +1,122 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum TransactionType {
+  DEPOSIT
+  WITHDRAWAL
+}
+
+enum TransactionStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+enum PurchaseStatus {
+  ACTIVE
+  PAUSED
+  CANCELLED
+}
+
+enum ReferralRewardType {
+  DEPOSIT_BONUS
+  PROFIT_SHARE
+}
+
+model User {
+  id                      String              @id @default(cuid())
+  email                   String              @unique
+  passwordHash            String
+  name                    String?
+  language                String              @default("en")
+  referralCode            String              @unique
+  referredById            String?
+  referredBy              User?               @relation("UserReferrals", fields: [referredById], references: [id])
+  referrals               User[]              @relation("UserReferrals")
+  walletBalance           Decimal             @default(0)
+  botPrincipal            Decimal             @default(0)
+  totalDeposited          Decimal             @default(0)
+  totalWithdrawn          Decimal             @default(0)
+  totalEarnings           Decimal             @default(0)
+  totalReferralEarnings   Decimal             @default(0)
+  botActive               Boolean             @default(false)
+  botPurchasedAt          DateTime?
+  lastProfitDistribution  DateTime?
+  telegramHandle          String?
+  createdAt               DateTime            @default(now())
+  updatedAt               DateTime            @updatedAt
+  transactions            WalletTransaction[]
+  botPurchases            BotPurchase[]
+  trades                  BotTrade[]
+  referralRewardsEarned   ReferralReward[]    @relation("ReferralRewardsEarned")
+  referralRewardsReceived ReferralReward[]    @relation("ReferralRewardsReceived")
+}
+
+model WalletTransaction {
+  id              String             @id @default(cuid())
+  userId          String
+  user            User               @relation(fields: [userId], references: [id])
+  type            TransactionType
+  status          TransactionStatus  @default(PENDING)
+  amount          Decimal
+  txHash          String?
+  targetAddress   String?
+  processedBy     String?
+  processedAt     DateTime?
+  note            String?
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  referralRewards ReferralReward[]   @relation("ReferralTransactionRewards")
+}
+
+model BotPurchase {
+  id            String         @id @default(cuid())
+  userId        String
+  user          User           @relation(fields: [userId], references: [id])
+  amount        Decimal
+  status        PurchaseStatus @default(ACTIVE)
+  activatedAt   DateTime?      @default(now())
+  deactivatedAt DateTime?
+  createdAt     DateTime       @default(now())
+}
+
+model BotTrade {
+  id                String           @id @default(cuid())
+  userId            String
+  user              User             @relation(fields: [userId], references: [id])
+  profitAmount      Decimal
+  tradeWindowStart  DateTime
+  tradeWindowEnd    DateTime
+  baseBalance       Decimal
+  executionLatency  Int?
+  strategySnapshot  String?
+  createdAt         DateTime         @default(now())
+  referralRewards   ReferralReward[] @relation("ReferralTradeRewards")
+}
+
+model ReferralReward {
+  id                  String              @id @default(cuid())
+  referrerId          String
+  referrer            User                @relation("ReferralRewardsEarned", fields: [referrerId], references: [id])
+  referredUserId      String
+  referredUser        User                @relation("ReferralRewardsReceived", fields: [referredUserId], references: [id])
+  rewardType          ReferralRewardType
+  amount              Decimal
+  sourceTransactionId String?
+  sourceTransaction   WalletTransaction?  @relation("ReferralTransactionRewards", fields: [sourceTransactionId], references: [id])
+  sourceTradeId       String?
+  sourceTrade         BotTrade?           @relation("ReferralTradeRewards", fields: [sourceTradeId], references: [id])
+  createdAt           DateTime            @default(now())
+}
